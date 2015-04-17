@@ -1,0 +1,7 @@
+sulon_user:
+    resource: "@SulonUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+sulon_app:
+    resource: "@SulonAppBundle/Resources/config/routing.yml"
+    prefix:   /

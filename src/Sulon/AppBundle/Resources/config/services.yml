@@ -1,0 +1,4 @@
+services:
+#    sulon_app.example:
+#        class: Sulon\AppBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

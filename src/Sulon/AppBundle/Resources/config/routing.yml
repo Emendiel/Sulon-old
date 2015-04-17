@@ -1,0 +1,3 @@
+sulon_app_homepage:
+    path:     /
+    defaults: { _controller: SulonAppBundle:Default:index }
