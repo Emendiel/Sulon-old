@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Sulon\AppBundle\SulonAppBundle(),
             new Sulon\UserBundle\SulonUserBundle(),
+            new Sulon\SecurityBundle\SulonSecurityBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

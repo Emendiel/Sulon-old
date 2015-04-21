@@ -61,9 +61,15 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        {% block content %}
+            {% for flashMessage in app.session.flashbag.get('notice') %}
+                <div class="flash-notice">
+                    {{ flashMessage }}
+                </div>
+            {% endfor %}
+            
+            {% block content %}
 
-        {% endblock content %}
+            {% endblock content %}
       </div>
     </div>
 

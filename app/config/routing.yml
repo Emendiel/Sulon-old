@@ -1,3 +1,7 @@
+sulon_security:
+    resource: "@SulonSecurityBundle/Resources/config/routing.yml"
+    prefix:   /
+
 sulon_user:
     resource: "@SulonUserBundle/Resources/config/routing.yml"
     prefix:   /

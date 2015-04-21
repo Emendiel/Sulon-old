@@ -71,9 +71,24 @@ class User
     private $username;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="password", type="string", length=255)
+     */
+    private $password;
+
+    /**
      * @ORM\Column(type="array", nullable=true, name="roles")
      */
     protected $roles;
+
+
+    public function __construct()
+    {
+        $this->createAt = new \Datetime();
+        $this->updateAt = NULL;
+        $this->roles = array('USER');
+    }
 
     /**
      * Get id
@@ -267,5 +282,28 @@ class User
     public function getRoles()
     {
         return $this->roles;
+    }
+
+    /**
+     * Set password
+     *
+     * @param string $password
+     * @return User
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * Get password
+     *
+     * @return string 
+     */
+    public function getPassword()
+    {
+        return $this->password;
     }
 }

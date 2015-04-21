@@ -1,0 +1,4 @@
+services:
+#    sulon_security.example:
+#        class: Sulon\SecurityBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
