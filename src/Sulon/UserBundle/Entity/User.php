@@ -3,15 +3,21 @@
 namespace Sulon\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * User
  *
- * @ORM\Table()
+ * @ORM\Table(name="User", options={"engine"="InnoDB"})
  * @ORM\Entity(repositoryClass="Sulon\UserBundle\Entity\UserRepository")
+ * @UniqueEntity(fields={"username"})
+ * @ORM\HasLifecycleCallbacks
  */
-class User
+class User implements UserInterface
 {
+    CONST staticSalt = 'Sulon42glhfX15';
+    
     /**
      * @var integer
      *
@@ -81,6 +87,11 @@ class User
      * @ORM\Column(type="array", nullable=true, name="roles")
      */
     protected $roles;
+    
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true, name="salt")
+     */
+    protected $salt;
 
 
     public function __construct()
@@ -88,6 +99,10 @@ class User
         $this->createAt = new \Datetime();
         $this->updateAt = NULL;
         $this->roles = array('USER');
+    }
+    
+    public function eraseCredentials()
+    {
     }
 
     /**
@@ -305,5 +320,28 @@ class User
     public function getPassword()
     {
         return $this->password;
+    }
+    
+    /**
+     * Set salt
+     *
+     * @param string $salt
+     * @return User
+     */
+    public function setSalt($salt)
+    {
+        $this->salt = $salt;
+        return $this;
+    }
+
+    /**
+     * Get salt
+     *
+     * @return string
+     */
+    public function getSalt()
+    {
+//        return $this->salt;
+        return $this::staticSalt;
     }
 }

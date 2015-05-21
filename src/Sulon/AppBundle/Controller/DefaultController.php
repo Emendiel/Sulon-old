@@ -13,6 +13,14 @@ class DefaultController extends Controller
             'Vos changements ont été sauvegardés!'
         );
         
+//        $factory = $this->get('security.encoder_factory');
+//        $user = new \Sulon\UserBundle\Entity\User();
+//
+//        $encoder = $factory->getEncoder($user);
+//        $password = $encoder->encodePassword('tututoto', $user->getSalt());
+//        var_dump($password);
+//        die();
+        
         return $this->render('SulonAppBundle:Default:index.html.twig');
     }
     
